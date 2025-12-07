@@ -31,6 +31,17 @@ urlpatterns = [
     path("contato/", views.contato, name="contato"), 
     
     #Pagina de Ajuda
-    path("ajuda/", views.ajuda, name="ajuda")
+    path("ajuda/", views.ajuda, name="ajuda"),
+    
+    #Pagina para exibir item por id
+    path("item/<int:id>/", views.exibir_item, name="exibir_item"),
+    
+    #Pagina de perfil de usuario
+    path('perfil/<str:usuario>/', views.perfil, name='perfil'),
+    
+    #Pagina para exibir dia da semana
+    path('diasemana/<int:numero>/', views.diasemana, name='diasemana'),
+    
+    
 
 ]
