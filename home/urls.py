@@ -42,6 +42,9 @@ urlpatterns = [
     #Pagina para exibir dia da semana
     path('diasemana/<int:numero>/', views.diasemana, name='diasemana'),
     
+    #Pagina de produtos
+    path('produto/', views.produtos, name='produto'),
+    
     
 
 ]
