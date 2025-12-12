@@ -45,6 +45,8 @@ urlpatterns = [
     #Pagina de produtos
     path('produto/', views.produtos, name='produto'),
     
+    #Pagina do formulario de produtos
+    path('produto/form', views.form_produto, name='form_produto'),
     
 
 ]
