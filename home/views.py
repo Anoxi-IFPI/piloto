@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from .forms import ContatoForm
 from .forms import ProdutoForm
 
@@ -70,3 +70,24 @@ def form_produto(request):
         'form': form,
         }
     return render(request, "produto/formulario.html", contexto)
+
+
+def detalhes_produto(request, id):
+    return render(request, "Botoes/detalhes.html", {'id':id})
+
+def editar_produto(request, id):
+    return render(request, "Botoes/editar_produto.html", {'id':id})
+
+def excluir_produto(request, id):
+    # Se o usuário clicou no botão "Sim, excluir" do formulário
+    if request.method == "POST":
+        # AQUI entraria o código para apagar do banco de dados.
+        # Exemplo real seria: Produto.objects.get(id=id).delete()
+        
+        print(f"Produto {id} excluído com sucesso!") # Apenas para testar no terminal
+        
+        # Após excluir, redireciona de volta para a lista de produtos
+        return redirect('produto')
+
+    # Se for apenas o acesso à pagina (GET), mostra a pergunta
+    return render(request, "Botoes/excluir_produto.html", {'id': id})

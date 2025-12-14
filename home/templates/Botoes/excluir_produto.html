@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Confirmação de Exclusão {% endblock %}
+
+{% block conteudo %}
+<div class="container">
+    <h2>Tem certeza?</h2>
+    <p>Você está prestes a excluir o Produto de ID: <strong>{{ id }}</strong>.</p>
+    <p class="text-danger">Essa ação não pode ser desfeita.</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        
+        <button type="submit" class="btn btn-danger">Sim, excluir</button>
+        
+        <a href="{% url 'produto' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}
